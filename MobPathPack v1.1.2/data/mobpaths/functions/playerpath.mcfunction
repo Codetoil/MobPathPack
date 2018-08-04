@@ -1,0 +1,24 @@
+execute if entity @p[tag=PathOnAir,nbt={Inventory:[{Slot:8b,id:"minecraft:feather",tag:{display:{Name:"{\"text\":\"Drop Me to Enable/Disable Walking on Air\",\"color\":\"green\"}"}}}]},tag=!hasfeather] run tag @p[tag=PathOnAir,nbt={Inventory:[{Slot:8b,id:"minecraft:feather",tag:{display:{Name:"{\"text\":\"Drop Me to Enable/Disable Walking on Air\",\"color\":\"green\"}"}}}]},tag=!hasfeather] add hasfeather
+execute if entity @p[tag=!PathOnAir,nbt={Inventory:[{Slot:8b,id:"minecraft:coal",tag:{display:{Name:"{\"text\":\"Drop Me to Enable/Disable Walking on Air\",\"color\":\"red\"}"}}}]},tag=!hascoal] run tag @p[tag=!PathOnAir,nbt={Inventory:[{Slot:8b,id:"minecraft:coal",tag:{display:{Name:"{\"text\":\"Drop Me to Enable/Disable Walking on Air\",\"color\":\"red\"}"}}}]},tag=!hascoal] add hascoal
+
+execute if entity @p[tag=PathOnAir,nbt=!{Inventory:[{Slot:8b,id:"minecraft:feather",tag:{display:{Name:"{\"text\":\"Drop Me to Enable/Disable Walking on Air\",\"color\":\"green\"}"}}}]},tag=hasfeather] run replaceitem entity @p[tag=PathOnAir,nbt=!{Inventory:[{Slot:8b,id:"minecraft:feather",tag:{display:{Name:"{\"text\":\"Drop Me to Enable/Disable Walking on Air\",\"color\":\"green\"}"}}}]},tag=hasfeather] container.8 minecraft:coal{display:{Name:"{\"text\":\"Drop Me to Enable/Disable Walking on Air\",\"color\":\"red\"}"}}
+execute if entity @p[tag=!PathOnAir,nbt=!{Inventory:[{Slot:8b,id:"minecraft:coal",tag:{display:{Name:"{\"text\":\"Drop Me to Enable/Disable Walking on Air\",\"color\":\"red\"}"}}}]},tag=hascoal] run replaceitem entity @p[tag=!PathOnAir,nbt=!{Inventory:[{Slot:8b,id:"minecraft:coal",tag:{display:{Name:"{\"text\":\"Drop Me to Enable/Disable Walking on Air\",\"color\":\"red\"}"}}}]},tag=hascoal] container.8 minecraft:feather{display:{Name:"{\"text\":\"Drop Me to Enable/Disable Walking on Air\",\"color\":\"green\"}"}}
+
+execute if entity @p[tag=!PathOnAir,nbt={Inventory:[{Slot:8b,id:"minecraft:feather",tag:{display:{Name:"{\"text\":\"Drop Me to Enable/Disable Walking on Air\",\"color\":\"green\"}"}}}]},tag=hascoal] run tag @p[tag=!PathOnAir,nbt={Slot:8b,Inventory:[{id:"minecraft:feather",tag:{display:{Name:"{\"text\":\"Drop Me to Enable/Disable Walking on Air\",\"color\":\"green\"}"}}}]},tag=hascoal] remove hascoal
+execute if entity @p[tag=PathOnAir,nbt={Inventory:[{Slot:8b,id:"minecraft:coal",tag:{display:{Name:"{\"text\":\"Drop Me to Enable/Disable Walking on Air\",\"color\":\"red\"}"}}}]},tag=hasfeather] run tag @p[tag=PathOnAir,nbt={Slot:8b,Inventory:[{id:"minecraft:coal",tag:{display:{Name:"{\"text\":\"Drop Me to Enable/Disable Walking on Air\",\"color\":\"red\"}"}}}]},tag=hasfeather] remove hasfeather
+
+execute if entity @p[tag=!PathOnAir,nbt={Inventory:[{id:"minecraft:feather",tag:{display:{Name:"{\"text\":\"Drop Me to Enable/Disable Walking on Air\",\"color\":\"green\"}"}}}]}] run tag @p[tag=!PathOnAir,nbt={Inventory:[{Slot:8b,id:"minecraft:feather",tag:{display:{Name:"{\"text\":\"Drop Me to Enable/Disable Walking on Air\",\"color\":\"green\"}"}}}]}] add PathOnAir
+execute if entity @p[tag=PathOnAir,nbt={Inventory:[{id:"minecraft:coal",tag:{display:{Name:"{\"text\":\"Drop Me to Enable/Disable Walking on Air\",\"color\":\"red\"}"}}}]}] run tag @p[tag=PathOnAir,nbt={Inventory:[{Slot:8b,id:"minecraft:coal",tag:{display:{Name:"{\"text\":\"Drop Me to Enable/Disable Walking on Air\",\"color\":\"red\"}"}}}]}] remove PathOnAir
+
+kill @e[type=item,nbt={Item:{id:"minecraft:feather",tag:{display:{Name:"{\"text\":\"Drop Me to Enable/Disable Walking on Air\",\"color\":\"green\"}"}}}}]
+kill @e[type=item,nbt={Item:{id:"minecraft:coal",tag:{display:{Name:"{\"text\":\"Drop Me to Enable/Disable Walking on Air\",\"color\":\"red\"}"}}}}]
+
+execute as @a[gamemode=survival] at @a[gamemode=survival] run tag @s add Path
+execute as @a[gamemode=adventure] at @a[gamemode=adventure] run tag @s add Path
+execute as @a[gamemode=!survival,gamemode=!adventure] at @a[gamemode=!survival,gamemode=!adventure] run tag @s remove Path
+
+execute if entity @p[tag=PathOnAir,tag=hascoal,tag=hasfeather] run tag @p[tag=PathOnAir,tag=hascoal,tag=hasfeather] remove hascoal
+execute if entity @p[tag=!PathOnAir,tag=hascoal,tag=hasfeather] run tag @p[tag=!PathOnAir,tag=hascoal,tag=hasfeather] remove hasfeather
+
+execute if entity @p[tag=PathOnAir,tag=!hasfeather,tag=!hascoal] run replaceitem entity @p[tag=PathOnAir,tag=!hasfeather,tag=!hascoal] container.8 minecraft:feather{display:{Name:"{\"text\":\"Drop Me to Enable/Disable Walking on Air\",\"color\":\"green\"}"}}
+execute if entity @p[tag=!PathOnAir,tag=!hasfeather,tag=!hascoal] run replaceitem entity @p[tag=!PathOnAir,tag=!hasfeather,tag=!hascoal] container.8 minecraft:coal{display:{Name:"{\"text\":\"Drop Me to Enable/Disable Walking on Air\",\"color\":\"red\"}"}} 

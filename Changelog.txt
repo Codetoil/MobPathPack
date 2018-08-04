@@ -1,0 +1,60 @@
+Changelog For MobPathPack Releases:
+
+Version 1.2:
+A new version, Now with a loading sreen!
+
+-
+
+Version 1.1.2:
+-Finished making the internals a little nicer
+
+Version 1.1.1:
+-Fixed bug where players don't spawn with a feather or a stone
+-Made the internals a little nicer
+
+Version 1.1:
+The 2nd version!
+
+-Now every player has a unique feather or rock at the end of their hotbar
+-It allows them to each toggle between being able to walk on air or not to their liking
+-Players can still only create paths in survival mode and adventure mode
+
+Version 1.0:
+First Version That I kept
+
+Built For minecraft 1.13.1(18w30b), completely compatable with 1.13
+
+-Every mob has their own path with a different block depending on their type, and players have paths too.
+	e.g.
+	Zombie has a Brown Concrete Path
+	Skeleton has a Bone Block Path
+	Players have a Blue Concrete Path
+	etc.
+	Discover Every Type for Yourself!
+-Every mob/player can create a path in the air by just walking to it, Not togglable
+-Ground mobs have paths on the ground, Flying/Water mobs have trails underneath them
+-Paths are only created under players if they are in survival or adventure mode, any other mode won't!
+-Every block that is a path and their respective items are tagged under the #mobpaths:ispathtype tags respectively
+That's it!
+
+Changelog for MobPathPack Betas:
+
+Version 1.2 Beta 2:
+-This version changes the code so that the path is created from 3x3 square centered about the player
+-the diff variable is not used in this beta
+-a new variable called lagspiked is created, it measures lagspikes, but only when the player is moving, and not that well
+-The new player path is not just when the pathonair toggle is on, but also when it is off
+-The new path, unfortunately, does not fix the bug - the painful bug
+-You could say this Update so far is a failure. :(
+
+Version 1.2 Beta 1:
+-This version rewrites the path code to prevent the player from falling off when walking
+-To do that, a new variable is calculated named diff(after difference). It is the related to the difference between positions of the tick and the tick before
+-With that, the current system uses local coords to draw place the blocks in a specific way to prevent the player from falling off, but it feels very buggy and bad and it is very exploitable. 
+	The code, once again, will be rewritten. But I did feel that this code should be kept, so here it is!
+-Also, upon load, the pack states the pack version :)
+
+
+Nice To Know Facts:
+-It took a day for me to come create version 1.0
+-Betas weren't started until v1.2
